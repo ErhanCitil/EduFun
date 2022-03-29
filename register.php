@@ -148,7 +148,7 @@
             } else if ($_GET['error'] == "usernametaken") {
             ?>
                 <div class='control block-cube block-input'>
-                    <input type="text" placeholder="Gebruikersnaam al genomen!" readonly>
+                    <input type="text" placeholder="Gebruikersnaam/email is al gebruikt" readonly>
                     <div class='bg-top green'>
                         <div class='bg-inner'></div>
                     </div>

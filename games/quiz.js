@@ -2,63 +2,65 @@
 let questions = [
   {
     numb: 1,
-    question: "Ik loop naar de stad",
+    question: "persoonsvorm 'Ik loop naar de stad'",
     answer: "loop",
     options: ["Ik", "loop", "naar", "stad"],
   },
   {
     numb: 2,
-    question: "Kees en Piet gaan naar de stad",
-    answer: "gaan",
-    options: ["Kees", "gaan", "naar", "stad"],
+    question: "Engelse leenwoorden",
+    answer: "Uitloggen",
+    options: ["Uitlogen", "Uitlog", "Uitloggen!", "Uitloggen"],
+
   },
   {
     numb: 3,
-    question: "Zij houdt van pindakaas met hagelslag",
+    question: "persoonsvorm 'Zij houdt van pindakaas met hagelslag'",
     answer: "houdt",
     options: ["Zij", "pindakaas", "hagelslag", "houdt"],
   },
   {
     numb: 4,
-    question: "Ren jij altijd zo hard?",
-    answer: "Ren",
-    options: ["Ren", "hard", "jij", "altijd"],
+    question: "Engelse leenwoorden",
+    answer: "Googelen",
+    options: ["Googellen", "Gogelen", "Googellen", "Googelen"],
+
   },
   {
     numb: 5,
-    question: "Wij fietsen erg graag",
+    question: "persoonsvorm 'Wij fietsen erg graag'",
     answer: "fietsen",
     options: ["graag", "erg", "fietsen", "Wij"],
   },
   {
     numb: 6,
-    question: "Het regent het hele weekend.",
-    answer: "regent",
-    options: ["hele", "Het", "weekend", "regent"],
+    question: "persoonsvorm 'Kees en Piet gaan naar de stad'",
+    answer: "gaan",
+    options: ["Kees", "gaan", "naar", "stad"],
   },
   {
     numb: 7,
-    question: "Wij fietsen erg graag",
-    answer: "fietsen",
-    options: ["graag", "Wij", "erg", "fietsen"],
+    question: "Engelse leenwoorden",
+    answer: "Mailen",
+    options: ["Maillen", "Maaillen", "Moilen", "Mailen"],
   },
   {
     numb: 8,
-    question: "Hans klust de hele dag.",
-    answer: "klust",
-    options: ["klust", "dag", "hele", "Hans"],
+    question: "Engelse leenwoorden.",
+    answer: "Timen",
+    options: ["Timmen", "Temen", "Timen", "Timeen"],
   },
   {
     numb: 9,
-    question: "Morgen gaat hij op vakantie",
-    answer: "gaat",
-    options: ["gaat", "vakantie", "Morgen", "hij"],
+    question: "persoonsvorm 'Ren jij altijd zo hard?'",
+    answer: "Ren",
+    options: ["Ren", "hard", "jij", "altijd"],
   },
   {
     numb: 10,
-    question: "Hans klust de hele dag.",
-    answer: "klust",
-    options: ["dag", "Hans", "klust", "hele"],
+    question: "Engelse leenwoorden",
+    answer: "Downloaden",
+    options: ["Dawnloaden", "Downloaden", "Dowenloaden", "Downlloaden"],
   },
   // you can uncomment the below codes and make duplicate as more as you want to add question
   // but remember you need to give the numb value serialize like 1,2,3,5,6,7,8,9.....
@@ -76,21 +78,22 @@ let questions = [
   // },
 ];
 //selecting all required elements
-const start_btn = document.querySelector(".start_btn button");
-const remove_btn = document.querySelector(".start_btn");
+const start_btn_pv = document.querySelector(".start_btn_pv button");
+const remove_btn = document.querySelector(".start_btn_pv");
 
 // const info_box = document.querySelector(".info_box");
 // const exit_btn = info_box.querySelector(".buttons .quit");
 // const continue_btn = info_box.querySelector(".buttons .restart");
-const quiz_box = document.querySelector(".quiz_box");
-const result_box = document.querySelector(".result_box");
-const option_list = document.querySelector(".option_list");
-const time_line = document.querySelector("header .time_line");
-const timeText = document.querySelector(".timer .time_left_txt");
-const timeCount = document.querySelector(".timer .timer_sec");
-
+const quiz_box = document.querySelector(".quiz_box_pv");
+const result_box = document.querySelector(".result_box_pv");
+const option_list = document.querySelector(".option_list_pv");
+const time_line = document.querySelector("header .time_line_pv");
+const timeText = document.querySelector(".timer .time_left_txt_pv");
+const timeCount = document.querySelector(".timer .timer_sec_pv");
+const saveButton = document.getElementById("save-score");
+const username = document.getElementById("username");
 // if startQuiz button clicked
-start_btn.onclick = () => {
+start_btn_pv.onclick = () => {
   quiz_box.classList.add("activeQuiz"); //show info box
   remove_btn.classList.add("remove_btn"); //hide info box
   showQuetions(0); //calling showQestions function
@@ -114,7 +117,7 @@ start_btn.onclick = () => {
 //   startTimerLine(0); //calling startTimerLine function
 // };
 
-let timeValue = 15;
+let timeValue = 14;
 let que_count = 0;
 let que_numb = 1;
 let userScore = 0;
@@ -122,14 +125,14 @@ let counter;
 let counterLine;
 let widthValue = 0;
 
-const restart_quiz = result_box.querySelector(".buttons .restart");
-const quit_quiz = result_box.querySelector(".buttons .quit");
+const restart_quiz = result_box.querySelector(".buttons_pv .restart_pv");
+const quit_quiz = result_box.querySelector(".buttons_pv .quit_pv");
 
 // if restartQuiz button clicked
 restart_quiz.onclick = () => {
   quiz_box.classList.add("activeQuiz"); //show quiz box
   result_box.classList.remove("activeResult"); //hide result box
-  timeValue = 15;
+  timeValue = 14;
   que_count = 0;
   que_numb = 1;
   userScore = 0;
@@ -140,7 +143,7 @@ restart_quiz.onclick = () => {
   clearInterval(counterLine); //clear counterLine
   startTimer(timeValue); //calling startTimer function
   startTimerLine(widthValue); //calling startTimerLine function
-  timeText.textContent = "Time Left"; //change the text of timeText to Time Left
+  timeText.textContent = "Tijd over"; //change the text of timeText to Time Left
   next_btn.classList.remove("show"); //hide the next button
 };
 
@@ -149,8 +152,8 @@ quit_quiz.onclick = () => {
   window.location.reload(); //reload the current window
 };
 
-const next_btn = document.querySelector("footer .next_btn");
-const bottom_ques_counter = document.querySelector("footer .total_que");
+const next_btn = document.querySelector("footer .next_btn_pv");
+const bottom_ques_counter = document.querySelector("footer .total_que_pv");
 
 // if Next Que button clicked
 next_btn.onclick = () => {
@@ -164,7 +167,7 @@ next_btn.onclick = () => {
     clearInterval(counterLine); //clear counterLine
     startTimer(timeValue); //calling startTimer function
     startTimerLine(widthValue); //calling startTimerLine function
-    timeText.textContent = "Time Left"; //change the timeText to Time Left
+    timeText.textContent = "Tijd over"; //change the timeText to Time Left
     next_btn.classList.remove("show"); //hide the next button
   } else {
     clearInterval(counter); //clear counter
@@ -175,7 +178,7 @@ next_btn.onclick = () => {
 
 // getting questions and options from array
 function showQuetions(index) {
-  const que_text = document.querySelector(".que_text");
+  const que_text = document.querySelector(".que_text_pv");
 
   //creating a new span and div tag for question and option and passing the value using array index
   let que_tag =
@@ -250,7 +253,7 @@ function showResult() {
   // info_box.classList.remove("activeInfo"); //hide info box
   quiz_box.classList.remove("activeQuiz"); //hide quiz box
   result_box.classList.add("activeResult"); //show result box
-  const scoreText = result_box.querySelector(".score_text");
+  const scoreText = result_box.querySelector(".score_text_pv");
   if (userScore > 8) {
     // if user scored more than 8
     //creating a new span tag and passing the user score number and total question number
@@ -335,4 +338,39 @@ function queCounter(index) {
     questions.length +
     "</p> Questions</span>";
   bottom_ques_counter.innerHTML = totalQueCounTag; //adding new span tag inside bottom_ques_counter
+}
+
+
+
+/*------------------------------------------*/
+
+
+// saving high scores
+
+const MAX_HIGH_SCORES = 10;
+const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+
+//console.log(highScore);
+
+
+username.addEventListener('keyup', () => {
+    saveButton.disabled = !username.value;
+})
+saveHighscore = e => {
+    e.preventDefault();
+
+    const score = {
+        score: userScore,
+        name: username.value
+    };
+
+    highScores.push(score);
+    highScores.sort((a, b) => b.score - a.score);
+    highScores.splice(10);
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+    //console.log(highScores);
+}
+
+function navigateScore() {
+    window.location.href = "highscore.php";
 }

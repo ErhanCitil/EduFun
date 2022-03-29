@@ -85,10 +85,23 @@ include 'dbConnection.php';
                             <div class="topinfo">
                                 <div>Smart</div>
                             </div>
-                            <a href="games/math">
+                            <a href="games/index">
                                 <img class="image" src="https://www.gynzy.com/wp-content/uploads/2020/09/Schattend-rekenen-header.jpg">
                                 <div class="title">
                                     <p> Rekenen </p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+					<div class="games">
+                        <div class="box">
+                            <div class="topinfo">
+                                <div>Woorden</div>
+                            </div>
+                            <a href="games/wordle">
+                                <img class="image" src="https://www.moustique.be/wp-content/uploads/2022/01/WORLDE.jpg">
+                                <div class="title">
+                                    <p> Wordle </p>
                                 </div>
                             </a>
                         </div>

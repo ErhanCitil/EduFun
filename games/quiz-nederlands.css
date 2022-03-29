@@ -332,14 +332,14 @@
     padding: 0px 40px;
 }
   /********------------------------------------------------------------------*********/
-.info_box.activeInfo,
-.quiz_box.activeQuiz,
-.result_box.activeResult {
+.info_box_pv.activeInfo,
+.quiz_box_pv.activeQuiz,
+.result_box_pv.activeResult {
   display: block;
   pointer-events: auto;
 }
 
-.start_btn button {
+.start_btn_pv button {
   font-size: 25px;
   color: #8cb337;
   padding: 15px 30px;
@@ -352,7 +352,7 @@
   display: none;
 }
 
-.quiz_box {
+.quiz_box_pv {
   width: 850px;
   background: #8f8f8f;
   border-radius: 5px;
@@ -361,7 +361,7 @@
   transition: all 0.3s ease;
 }
 
-.quiz_box header {
+.quiz_box_pv header {
   position: relative;
   z-index: 2;
   height: 70px;
@@ -374,12 +374,12 @@
   box-shadow: 0px 3px 5px 1px rgba(0, 0, 0, 0.1);
 }
 
-.quiz_box header .title {
+.quiz_box_pv header .title {
   font-size: 20px;
   font-weight: 600;
 }
 
-.quiz_box header .timer {
+.quiz_box_pv header .timer {
   color: #340979;
   background: #8cb337;
   border: 1px solid #8cb337;
@@ -391,13 +391,13 @@
   width: 145px;
 }
 
-.quiz_box header .timer .time_left_txt {
+.quiz_box_pv header .timer .time_left_txt_pv {
   font-weight: 400;
   font-size: 17px;
   user-select: none;
 }
 
-.quiz_box header .timer .timer_sec {
+.quiz_box_pv header .timer .timer_sec_pv {
   font-size: 18px;
   font-weight: 500;
   height: 30px;
@@ -410,7 +410,7 @@
   user-select: none;
 }
 
-.quiz_box header .time_line {
+.quiz_box_pv header .time_line_pv {
   position: absolute;
   bottom: 0px;
   left: 0px;
@@ -423,17 +423,17 @@
   background: #8f8f8f;
 }
 
-section .que_text {
+section .que_text_pv {
   font-size: 25px;
   font-weight: 600;
 }
 
-section .option_list {
+section .option_list_pv {
   padding: 20px 0px;
   display: block;
 }
 
-section .option_list .option {
+section .option_list_pv .option {
   background: aliceblue;
   border: 1px solid #84c5fe;
   border-radius: 5px;
@@ -447,33 +447,33 @@ section .option_list .option {
   justify-content: space-between;
 }
 
-section .option_list .option:last-child {
+section .option_list_pv .option:last-child {
   margin-bottom: 0px;
 }
 
-section .option_list .option:hover {
+section .option_list_pv .option:hover {
   color: #340979;
   background: #cce5ff;
   border: 1px solid #b8daff;
 }
 
-section .option_list .option.correct {
+section .option_list_pv .option.correct {
   color: #155724;
   background: #d4edda;
   border: 1px solid #c3e6cb;
 }
 
-section .option_list .option.incorrect {
+section .option_list_pv .option.incorrect {
   color: #721c24;
   background: #f8d7da;
   border: 1px solid #f5c6cb;
 }
 
-section .option_list .option.disabled {
+section .option_list_pv .option.disabled {
   pointer-events: none;
 }
 
-section .option_list .option .icon {
+section .option_list_pv .option .icon {
   height: 26px;
   width: 26px;
   border: 2px solid transparent;
@@ -483,23 +483,23 @@ section .option_list .option .icon {
   pointer-events: none;
   transition: all 0.3s ease;
 }
-.option_list .option .icon.tick {
+.option_list_pv .option .icon.tick {
   color: #23903c;
   border-color: #23903c;
   background: #d4edda;
 }
 
-.option_list .option .icon.cross {
+.option_list_pv .option .icon.cross {
   color: #a42834;
   background: #f8d7da;
   border-color: #a42834;
 }
 
-.complete_text > i{
+.complete_text_pv > i{
   color: #23903c;
 }
 
-.score_text span p {
+.score_text_pv span p {
   color: #23903c;
 }
 
@@ -512,17 +512,17 @@ footer {
   border-top: 1px solid lightgrey;
 }
 
-footer .total_que span {
+footer .total_que_pv span {
   display: flex;
   user-select: none;
 }
 
-footer .total_que span p {
+footer .total_que_pv span p {
   font-weight: 500;
   padding: 0 5px;
 }
 
-footer .total_que span p:first-child {
+footer .total_que_pv span p:first-child {
   padding-left: 0px;
 }
 
@@ -555,12 +555,11 @@ footer button.show {
   transform: scale(1);
 }
 
-.result_box {
+.result_box_pv {
   background: #8f8f8f;
   border-radius: 5px;
-  display: flex;
+  flex-wrap: wrap;
   padding: 25px 30px;
-  width: 450px;
   align-items: center;
   flex-direction: column;
   justify-content: center;
@@ -569,35 +568,35 @@ footer button.show {
   transition: all 0.3s ease;
 }
 
-.result_box .icon {
+.result_box_pv .icon {
   font-size: 100px;
   color: #8cb337;
   margin-bottom: 10px;
 }
 
-.result_box .complete_text {
+.result_box_pv .complete_text_pv {
   font-size: 20px;
   font-weight: 500;
 }
 
-.result_box .score_text span {
+.result_box_pv .score_text_pv span {
   display: flex;
   margin: 10px 0;
   font-size: 18px;
   font-weight: 500;
 }
 
-.result_box .score_text span p {
+.result_box_pv .score_text_pv span p {
   padding: 0 4px;
   font-weight: 600;
 }
 
-.result_box .buttons {
+.result_box_pv .buttons_pv {
   display: flex;
   margin: 20px 0;
 }
 
-.result_box .buttons button {
+.result_box_pv .buttons_pv button {
   margin: 0 10px;
   height: 45px;
   padding: 0 20px;
@@ -611,21 +610,21 @@ footer button.show {
   transition: all 0.3s ease;
 }
 
-.buttons button.restart {
+.buttons_pv button.restart_pv {
   color: #fff;
   background: #8cb337;
 }
 
-.buttons button.restart:hover {
+.buttons_pv button.restart_pv:hover {
   background: #8cb337;
 }
 
-.buttons button.quit {
+.buttons_pv button.quit {
   color: #8cb337;
   background: #fff;
 }
 
-.buttons button.quit:hover {
+.buttons_pv button.quit_pv:hover {
   color: #fff;
   background: #8cb337;
 }
@@ -634,11 +633,90 @@ footer button.show {
     margin-top: 7px;
 }
 
-.total_que span p {
+.total_que_pv span p {
     color: #340979;
 }
 
 .option-color-bg {
     background: #340979 !important;
 
+}
+
+
+
+#container {
+  padding:50px;
+  height: auto;
+  width: auto;
+}
+.titel-site {
+  flex:2;
+}
+.bracket-title ul, .bracket-title li {
+  display:inline;
+}
+.navbar-resultaten-kolom, .navbar-gebruikers {
+  display:flex;
+  flex-wrap:wrap;
+  padding:15px 25px;
+}
+.navbar-resultaten-kolom label {
+  color:#747474;
+  font-size:18px;
+  font-weight:bold;
+}
+.kolomleader, .resultaat-kolom {
+  flex:1;
+}
+.navbar-resultaten-kolom {
+  margin:5px 0px;
+}
+.navbar-gebruikers {
+  background:#1d1d1d;
+  border-radius:10px;
+  margin:5px 0px;
+  align-items:center;
+}
+.navbar-ladder .navbar-gebruikers:nth-of-type(1) {
+  color:#686EF9;
+}
+.resultaat-kolom {
+  font-size:18px;
+  color:#747474;
+  font-weight:bolder;
+}
+.punt {
+  display:block;
+  background:lightgreen;
+  color:white!important;
+  font-weight:bold;
+  width:34px;
+  height:34px;
+  text-align:center;
+  border-radius:50%;
+}
+.rank-level {
+  padding-top: 4px;
+  vertical-align:middle;
+  color: #00008B;
+}
+.navbar-gebruikers:hover {
+  background:#1A1A1A;
+}
+
+.resultaat-naam {
+  color: #fff !important;
+}
+
+.resultaat-punten {
+  color: #fff !important;
+}
+
+
+#username {
+  height: 39px;
+    padding: 0px 5px;
+    border: 1px solid #8cb337;
+    border-radius: 5px;
+    font-size: 18px;
 }

@@ -1,5 +1,7 @@
 <?php
 $servername = "localhost";
+// $username = "root";
+// $password = "";
 $username = "edufun";
 $password = "D5px_3j5";
 $db = "edufun";

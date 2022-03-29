@@ -72,44 +72,54 @@ if (!isset($_SESSION["useruid"])) {
 			</div>
 			<div id="games-text">
 				<div id="game">
-					<div class="start_btn"><button>Beginnen met spelen</button></div>
-					<div class="quiz_box">
+					<div class="start_btn start_btn_pv"><button>Persoonsvorm en Engelse leenwoorden</button></div>
+					<div class="quiz_box quiz_box_pv">
 						<header>
-							<div class="title">Wat is de persoonsvorm (pv)?</div>
+							<div class="title"><?php echo  $_SESSION["useruid"]; ?></div>
 							<div class="timer">
-								<div class="time_left_txt">Tijd over</div>
-								<div class="timer_sec">15</div>
+								<div class="time_left_txt_pv">Tijd over</div>
+								<div class="timer_sec_pv">15</div>
 							</div>
-							<div class="time_line"></div>
+							<div class="time_line_pv"></div>
 						</header>
 						<section class="ss">
-							<div class="que_text">
+							<div class="que_text_pv">
 							</div>
-							<div class="option_list">
+							<div class="option_list_pv">
 							</div>
 						</section>
 
 						<footer>
-							<div class="total_que">
+							<div class="total_que_pv">
 							</div>
-							<button class="next_btn">Volgende vraag ➜</button>
+							<button class="next_btn_pv">Volgende vraag ➜</button>
 						</footer>
 					</div>
 
-					<div class="result_box">
-						<div class="complete_text">Jaaaa! Je hebt de quiz voltooid! <i class="fa fa-hand-peace-o" aria-hidden="true"></i></div>
-						<div class="score_text">
+					<div class="result_box_pv">
+						<div class="complete_text_pv">Jaaaa! Je hebt de quiz voltooid! <i class="fa fa-hand-peace-o" aria-hidden="true"></i></div>
+						<div class="score_text_pv">
 						</div>
-						<div class="buttons">
-							<button class="restart">Opnieuw Spelen</button>
-							<button class="quit">Quiz afsluiten</button>
+						<div class="buttons_pv">
+							<button class="restart_pv">Opnieuw Spelen</button>
+							<button class="quit_pv">Quiz afsluiten</button>
+							<form>
+								<input type="text" name="username" id="username" placeholder="speler naam">
+							</form>
+							<div class="buttons">
+								<button class="btn" id="save-score" onclick="saveHighscore(event)" disabled name="save_score">Save</button>
+							</div> <a href="highscore"><button class="resultaat_pv">LeaderBoard</button></a>
 						</div>
 					</div>
 				</div>
 			</div>
 	</section>
+
+
 	<script src="../script.js"></script>
 	<script src="quiz.js"></script>
+	<?php $score = "<script>document.writeIn(scoreTag)</script>"?>
+	<?php echo $score;?>
 
 </body>
 

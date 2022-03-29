@@ -11,3 +11,11 @@ CREATE TABLE users (
     usersUid VARCHAR(100) NOT NULL,
     usersPwd VARCHAR(100) NOT NULL
 );
+
+CREATE TABLE `edufun`.(
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `id_game` INT NOT NULL,
+    `useruid` INT NOT NULL,
+    `score` INT NOT NULL,
+    PRIMARY KEY(`id`)
+)

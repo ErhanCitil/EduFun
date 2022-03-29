@@ -30,17 +30,14 @@ function getRandomInt(min, max) {
 
 function generateQuestion() {
     return {
-        firstNum: getRandomDivBy5(10, 20),
-        secondNum: getRandomDivBy5(2, 10),
+        firstNum: getRandomDivBy5(8, 20),
+        secondNum: getRandomDivBy5(2, 8),
         operator: ['+', '-', 'x', '/'][getRandomInt(0, 3)]
     }
 }
 
 mathForm.addEventListener("submit", submitHandler)
-function round(num, decimalPlaces = 2) {
-    var p = Math.pow(10, decimalPlaces);
-    return Math.round(num * p) / p;
-}
+
 function submitHandler(e) {
     e.preventDefault();
     let correctAnswer
