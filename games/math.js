@@ -38,8 +38,8 @@ function getRandomInt(min, max) {
 
 function generateQuestion() {
     return {
-        firstNum: getRandomDivBy5(2, 30),
-        secondNum: getRandomDivBy5(2, 20),
+        firstNum: getRandomDivBy5(18, 68),
+        secondNum: getRandomDivBy5(2, 16),
         operator: ['+', '-', 'x'][getRandomInt(0, 2)]
     }
 }
