@@ -1,7 +1,6 @@
 const highScoreList = document.querySelector(".leaderboard");
 const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-const saveButton = document.getElementById("save-score");
-const username = document.getElementById("username");
+
 highScoreList.innerHTML = highScores
 .map(score => {
    return `<div class="navbar-gebruikers">
@@ -13,10 +12,10 @@ highScoreList.innerHTML = highScores
     </div>
   </div>`;
 }).join("");
-// console.log(highScores)
+//console.log(highScores)
 
-// // back to home-page
+// back to home-page
 
-// function navigateHome() {
-//   window.location.href = "index.php";
-// }
+function navigateHome() {
+  window.location.href = "index.php";
+}

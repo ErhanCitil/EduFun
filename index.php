@@ -85,7 +85,7 @@ include 'dbConnection.php';
                             <div class="topinfo">
                                 <div>Smart</div>
                             </div>
-                            <a href="games/math">
+                            <a href="games/index">
                                 <img class="image" src="https://www.gynzy.com/wp-content/uploads/2020/09/Schattend-rekenen-header.jpg">
                                 <div class="title">
                                     <p> Rekenen </p>

@@ -12,14 +12,14 @@ if (!isset($_SESSION["useruid"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta property="og:site_name" content="Edufun">
-	<link rel="shortcut icon" type="image/png" href="../img/icon.png">
-	<meta property="og:image" content="../img/icon.png">
+    <meta property="og:site_name" content="Edufun">
+    <meta property="og:image" content="../img/icon.png">
+    <link rel="shortcut icon" type="image/png" href="../img/icon.png">
     <link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" type="text/css" href="../css/font-awesome.css">
+    <script src="https://kit.fontawesome.com/c8f092cc07.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="../css/font-awesome.css">
     <link rel="stylesheet" href="../css/style.css">
-    <title>LeaderBoard</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Home Page</title>
 </head>
 <body>
 <header id="header">
@@ -70,27 +70,15 @@ if (!isset($_SESSION["useruid"])) {
 			<div class="games-text">
 				<p><i class="fa fa-calculator" aria-hidden="true"></i> Rekenen </p>
 			</div>
-    <div id="container" class="navbar-ladder">
-        <div class="leader">
-            <h1>LeaderBoard</h1>
-        </div>
-        <div class="navbar-resultaten-kolom">
-          <div class="kolomleader">
-            <label>Naam</label>
-          </div>
-          <div class="kolomleader">
-            <label>Punten</label>
-          </div>
-        </div>
-        <div class="leaderboard">
-        </div>
-      </div>
-      <div class="button">
-      <button class="start-over" onclick="navigateHome()">Home<i class="fa fa-home"></i></button>
-    </div>
-    </div>
+            <div class="container">
+                <div id="home" class="flex-colum flex-center">
+                    <h1>Ready for some math?</h1>
+                    <a class="btn" href="math.php">Play</a>
+                    <a class="btn" id="highscore-btn" href="highscore.php">High Scores<i class="fas fa-crown"></i></a>
+                </div>
+            </div>
+		</div>
 	</section>
 	<script src="../script.js"></script>
-    <script src="highscore.js"></script>
 </body>
 </html>

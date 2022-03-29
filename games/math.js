@@ -6,14 +6,22 @@ const mistakes = document.querySelector(".mistakes-made")
 const progressBar = document.querySelector(".progress-inner")
 const endMessage = document.querySelector(".end-message")
 const resetButton = document.querySelector(".start-over")
+const timeincrement = document.querySelector(".timer_sec");
+const username = document.getElementById("username");
+const saveButton = document.getElementById("save-score");
 
 let state = {
     score: 0,
-    wrongAnswers: 0
+    wrongAnswers: 0,
+    sec: 20
 }
 
 function updateQuestion() {
     state.currentQuestion = generateQuestion()
+    if ((state.currentQuestion.firstNum % state.currentQuestion.secondNum) == 0) {
+        state.currentQuestion.operator = "/";
+        questionElement.innerHTML = `${state.currentQuestion.firstNum} / ${state.currentQuestion.secondNum}`
+    }
     questionElement.innerHTML = `${state.currentQuestion.firstNum} ${state.currentQuestion.operator} ${state.currentQuestion.secondNum}`
     mathField.value = "";
     mathField.focus();
@@ -30,9 +38,23 @@ function getRandomInt(min, max) {
 
 function generateQuestion() {
     return {
-        firstNum: getRandomDivBy5(8, 20),
-        secondNum: getRandomDivBy5(2, 8),
-        operator: ['+', '-', 'x', '/'][getRandomInt(0, 3)]
+        firstNum: getRandomDivBy5(2, 30),
+        secondNum: getRandomDivBy5(2, 20),
+        operator: ['+', '-', 'x'][getRandomInt(0, 2)]
+    }
+}
+
+// timer function
+var time = setInterval(myTimer, 1000);
+
+function myTimer() {
+    timeincrement.innerHTML = state.sec;
+    state.sec--;
+    if (state.sec < 0) {
+        clearInterval(time);
+        endMessage.textContent = "Your score is " + state.score;
+        document.body.classList.add("show-overlay")
+        setTimeout(() => resetButton.focus(), 330)
     }
 }
 
@@ -45,16 +67,24 @@ function submitHandler(e) {
     if (question.operator == "+") correctAnswer = question.firstNum + question.secondNum;
     if (question.operator == "-") correctAnswer = question.firstNum - question.secondNum;
     if (question.operator == "x") correctAnswer = question.firstNum * question.secondNum;
-    if (question.operator == "/") correctAnswer = Math.round(question.firstNum / question.secondNum);
+    if (question.operator == "/") correctAnswer = question.firstNum / question.secondNum;
 
-    if (parseInt(Math.round(mathField.value), 10) === correctAnswer) {
-        state.score++
-        pointNeeded.textContent = 10 - state.score;
-        updateQuestion()
-        renderProgress()
+    if (parseInt(mathField.value, 10) === correctAnswer) {
+        state.score += 50;
+        state.sec += 5;
+        timeincrement.textContent = state.sec
+        clearInterval(state.sec);
+        myTimer();
+        pointNeeded.textContent = state.score;
+        updateQuestion();
+        renderProgress();
     } else {
         state.wrongAnswers++
-        mistakes.textContent = 2 - state.wrongAnswers;
+        state.sec--
+        timeincrement.textContent = state.sec;
+        clearInterval(state.sec);
+        myTimer();
+        mistakes.textContent = 6 - state.wrongAnswers;
         questionElement.classList.add("animate-wrong")
         setTimeout(() => questionElement.classList.remove("animate-wrong"), 451)
         updateQuestion()
@@ -64,14 +94,15 @@ function submitHandler(e) {
 
 function checkstatus() {
     // you won
-    if (state.score === 10) {
-        endMessage.textContent = "Congrats! You won.";
+    
+    if (state.score === 1000) {
+        endMessage.textContent = "Congrats! You reached the maximum score!.";
         document.body.classList.add("show-overlay")
         setTimeout(() => resetButton.focus(), 330)
     }
     // you lost
-    if (state.wrongAnswers === 3) {
-        endMessage.textContent = "Sorry! You lost.";
+    if (state.wrongAnswers === 6) {
+        endMessage.textContent = "Try again!";
         document.body.classList.add("show-overlay")
         setTimeout(() => resetButton.focus(), 330)
     }
@@ -81,13 +112,61 @@ resetButton.addEventListener("click", resetGame)
 function resetGame() {
     document.body.classList.remove("show-overlay")
     updateQuestion()
+    var time = setInterval(myTimer, 1000);
+
+function myTimer() {
+    timeincrement.innerHTML = state.sec;
+    state.sec--;
+    if (state.sec < 0) {
+        clearInterval(time);
+        endMessage.textContent = "Your score is " + state.score;
+        document.body.classList.add("show-overlay")
+        setTimeout(() => resetButton.focus(), 330)
+    }
+}
     state.score = 0;
     state.wrongAnswers = 0;
+    state.sec = 20;
     pointNeeded.textContent = 10;
-    mistakes.textContent = 2;
+    mistakes.textContent = 6;
+    //clearInterval(state.sec);
+    //setInterval(myTimer, 1000);
+    //myTimer();
     renderProgress()
 }
 
 function renderProgress() {
-    progressBar.style.transform = `scaleX(${state.score / 10})`
+    progressBar.style.transform = `scaleX(${state.score / 1000})`
 }
+
+// saving high scores
+
+const MAX_HIGH_SCORES = 5;
+const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+
+//console.log(highScore);
+
+
+username.addEventListener('keyup', () => {
+    saveButton.disabled = !username.value;
+})
+saveHighscore = e => {
+    e.preventDefault();
+
+    const score = {
+        score: state.score,
+        name: username.value
+    };
+
+    highScores.push(score);
+    highScores.sort((a, b) => b.score - a.score);
+    highScores.splice(5);
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+    window.location.href = "index.php";
+    //console.log(highScores);
+}
+
+function navigateScore() {
+    window.location.href = "highscore.php";
+}
+//localStorage.clear();
