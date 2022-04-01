@@ -7,7 +7,8 @@ const progressBar = document.querySelector(".progress-inner")
 const endMessage = document.querySelector(".end-message")
 const resetButton = document.querySelector(".start-over")
 const timeincrement = document.querySelector(".timer_sec");
-const username = document.getElementById("username");
+// console.log(username);
+var username = document.getElementById("username");
 const saveButton = document.getElementById("save-score");
 
 let state = {
@@ -141,7 +142,7 @@ function renderProgress() {
 
 // saving high scores
 
-const MAX_HIGH_SCORES = 5;
+const MAX_HIGH_SCORES = 20;
 const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
 
 //console.log(highScore);
@@ -160,13 +161,14 @@ saveHighscore = e => {
 
     highScores.push(score);
     highScores.sort((a, b) => b.score - a.score);
-    highScores.splice(5);
+    highScores.splice(20);
     localStorage.setItem("highScores", JSON.stringify(highScores));
     window.location.href = "index.php";
     //console.log(highScores);
 }
-
+$abc = "<script>document.write(score)</script>";
 function navigateScore() {
     window.location.href = "highscore.php";
 }
-//localStorage.clear();
+
+localStorage.clear();

@@ -20,7 +20,6 @@ if (!isset($_SESSION["useruid"])) {
 	<link rel="stylesheet" type="text/css" href="math.css">
 	<link rel="stylesheet" href="../css/style.css">
 	<script src="https://kit.fontawesome.com/c8f092cc07.js" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="math.js" defer></script>
 
 </head>
 
@@ -74,10 +73,10 @@ if (!isset($_SESSION["useruid"])) {
 				<p><i class="fa fa-calculator" aria-hidden="true"></i> Rekenen </p>
 			</div>
 			<div class="main">
-			<div class="timer">
-				<div class="time_left_txt">Tijd over</div>
-				<div class="timer_sec">20</div>
-			</div>
+				<div class="timer">
+					<div class="time_left_txt">Tijd over</div>
+					<div class="timer_sec">20</div>
+				</div>
 				<p class="status">Je hebt <span class="point-needed"></span> punten</p>
 				<p class="question"></p>
 				<form action="" class="math-form">
@@ -103,20 +102,21 @@ if (!isset($_SESSION["useruid"])) {
 				</div>
 			</div>
 			<div class="overlay">
-    <div class="overlay-inner">
-        <p class="end-message"></p>
-        <form>
-            <input type="text" name="username" id="username" placeholder="speler naam">
-        </form>
-        <div class="buttons">
-            <button class="btn" id="save-score" onclick="saveHighscore(event)" disabled>Save</button>
-            <button class="btn" id="highscore-btn" onclick="navigateScore()">High Score<i class="fas fa-crown"></i></button>
-            <button class="start-over">Start Over</button>
-        </div>
-    </div>
-		</div>
+				<div class="overlay-inner">
+					<p class="end-message"></p>
+					<form>
+						<input type="text" name="username" id="username" placeholder="speler naam" value="<?php echo  $_SESSION["useruid"]; ?>">
+					</form>
+					<div class="buttons">
+						<button class="btn" id="save-score" onclick="saveHighscore(event)" disabled>Save</button>
+						<button class="btn" id="highscore-btn" onclick="navigateScore()">High Score<i class="fas fa-crown"></i></button>
+						<button class="start-over">Start Over</button>
+					</div>
+				</div>
+			</div>
 	</section>
-	<script src="../script.js"></script>
+<script src="../script.js"></script>
+	<script type="text/javascript" src="math.js" defer></script>
 </body>
 
 </html>

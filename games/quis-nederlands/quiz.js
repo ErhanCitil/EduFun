@@ -11,7 +11,6 @@ let questions = [
     question: "Engelse leenwoorden",
     answer: "Uitloggen",
     options: ["Uitlogen", "Uitlog", "Uitloggen!", "Uitloggen"],
-
   },
   {
     numb: 3,
@@ -24,7 +23,6 @@ let questions = [
     question: "Engelse leenwoorden",
     answer: "Googelen",
     options: ["Googellen", "Gogelen", "Googellen", "Googelen"],
-
   },
   {
     numb: 5,
@@ -62,28 +60,12 @@ let questions = [
     answer: "Downloaden",
     options: ["Dawnloaden", "Downloaden", "Dowenloaden", "Downlloaden"],
   },
-  // you can uncomment the below codes and make duplicate as more as you want to add question
-  // but remember you need to give the numb value serialize like 1,2,3,5,6,7,8,9.....
 
-  //   {
-  //   numb: 6,
-  //   question: "Your Question is Here",
-  //   answer: "Correct answer of the question is here",
-  //   options: [
-  //     "Option 1",
-  //     "option 2",
-  //     "option 3",
-  //     "option 4"
-  //   ]
-  // },
 ];
 //selecting all required elements
 const start_btn_pv = document.querySelector(".start_btn_pv button");
 const remove_btn = document.querySelector(".start_btn_pv");
 
-// const info_box = document.querySelector(".info_box");
-// const exit_btn = info_box.querySelector(".buttons .quit");
-// const continue_btn = info_box.querySelector(".buttons .restart");
 const quiz_box = document.querySelector(".quiz_box_pv");
 const result_box = document.querySelector(".result_box_pv");
 const option_list = document.querySelector(".option_list_pv");
@@ -102,20 +84,6 @@ start_btn_pv.onclick = () => {
   startTimerLine(0); //calling startTimerLine function
 };
 
-// if exitQuiz button clicked
-// exit_btn.onclick = () => {
-//   info_box.classList.remove("activeInfo"); //hide info box
-// };
-
-// if continueQuiz button clicked
-// continue_btn.onclick = () => {
-//   info_box.classList.remove("activeInfo"); //hide info box
-//   quiz_box.classList.add("activeQuiz"); //show quiz box
-//   showQuetions(0); //calling showQestions function
-//   queCounter(1); //passing 1 parameter to queCounter
-//   startTimer(15); //calling startTimer function
-//   startTimerLine(0); //calling startTimerLine function
-// };
 
 let timeValue = 14;
 let que_count = 0;
@@ -125,27 +93,8 @@ let counter;
 let counterLine;
 let widthValue = 0;
 
-const restart_quiz = result_box.querySelector(".buttons_pv .restart_pv");
+// const restart_quiz = result_box.querySelector(".buttons_pv .restart_pv");
 const quit_quiz = result_box.querySelector(".buttons_pv .quit_pv");
-
-// if restartQuiz button clicked
-restart_quiz.onclick = () => {
-  quiz_box.classList.add("activeQuiz"); //show quiz box
-  result_box.classList.remove("activeResult"); //hide result box
-  timeValue = 14;
-  que_count = 0;
-  que_numb = 1;
-  userScore = 0;
-  widthValue = 0;
-  showQuetions(que_count); //calling showQestions function
-  queCounter(que_numb); //passing que_numb value to queCounter
-  clearInterval(counter); //clear counter
-  clearInterval(counterLine); //clear counterLine
-  startTimer(timeValue); //calling startTimer function
-  startTimerLine(widthValue); //calling startTimerLine function
-  timeText.textContent = "Tijd over"; //change the text of timeText to Time Left
-  next_btn.classList.remove("show"); //hide the next button
-};
 
 // if quitQuiz button clicked
 quit_quiz.onclick = () => {
@@ -211,8 +160,10 @@ function showQuetions(index) {
   }
 }
 // creating the new div tags which for icons
-let tickIconTag = '<div class="icon tick"><i class="fa fa-check" aria-hidden="true"></i></div>';
-let crossIconTag = '<div class="icon cross"><i class="fa fa-times" aria-hidden="true"></i></div>';
+let tickIconTag =
+  '<div class="icon tick"><i class="fa fa-check" aria-hidden="true"></i></div>';
+let crossIconTag =
+  '<div class="icon cross"><i class="fa fa-times" aria-hidden="true"></i></div>';
 
 //if user clicked on option
 function optionSelected(answer) {
@@ -258,27 +209,30 @@ function showResult() {
     // if user scored more than 8
     //creating a new span tag and passing the user score number and total question number
     let scoreTag =
-      "<span>gefeliciteerd!, jij hebt <p>" +
+      "<span>gefeliciteerd!, jij hebt <input id='score' name='score' value='" +
       userScore +
-      "</p>goed uit <p>" +
+      "'' readonly>" +
+      "goed uit" +
       questions.length +
       "</p></span>";
     scoreText.innerHTML = scoreTag; //adding new span tag inside score_Text
   } else if (userScore > 5) {
     // if user scored more than 5
     let scoreTag =
-      "<span>leuk, jij hebt <p>" +
+      "<span>leuk, jij hebt <input id='score' name='score' value='" +
       userScore +
-      "</p>goed uit <p>" +
+      "'' readonly>" +
+      "goed uit <p>" +
       questions.length +
       "</p></span>";
     scoreText.innerHTML = scoreTag;
   } else {
     // if user scored less than 5
     let scoreTag =
-      "<span>sorry, jij hebt allen <p>" +
+      "<span>sorry, jij hebt allen <input id='score' name='score' value='" +
       userScore +
-      "</p> goed uit <p>" +
+      "'' readonly>" +
+      "goed uit <p>" +
       questions.length +
       "</p></span>";
     scoreText.innerHTML = scoreTag;
@@ -340,37 +294,34 @@ function queCounter(index) {
   bottom_ques_counter.innerHTML = totalQueCounTag; //adding new span tag inside bottom_ques_counter
 }
 
-
-
 /*------------------------------------------*/
+$(document).ready(function() {
+  $('#butsave').on('click', function() {
+    $("#butsave").attr("disabled", "disabled");
+    var score = $('#score').val();
+    if (score != "") {
+      $.ajax({
+        url: "save.php",
+        type: "POST",
+        data: {
+          score: score
+        },
+        cache: false,
+        success: function(dataResult) {
+          var dataResult = JSON.parse(dataResult);
+          if (dataResult.statusCode == 200) {
+            $("#butsave").removeAttr("disabled");
+            $('#fupForm').find('input:text').val('');
+            $("#success").show();
+            $('#success').alert("Success!");
+          } else if (dataResult.statusCode == 201) {
+            alert("Error occured !");
+          }
 
-
-// saving high scores
-
-const MAX_HIGH_SCORES = 10;
-const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
-
-//console.log(highScore);
-
-
-username.addEventListener('keyup', () => {
-    saveButton.disabled = !username.value;
-})
-saveHighscore = e => {
-    e.preventDefault();
-
-    const score = {
-        score: userScore,
-        name: username.value
-    };
-
-    highScores.push(score);
-    highScores.sort((a, b) => b.score - a.score);
-    highScores.splice(10);
-    localStorage.setItem("highScores", JSON.stringify(highScores));
-    //console.log(highScores);
-}
-
-function navigateScore() {
-    window.location.href = "highscore.php";
-}
+        }
+      });
+    } else {
+      alert('er is iets mis gegaan');
+    }
+  });
+});

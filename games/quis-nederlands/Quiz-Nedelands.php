@@ -1,8 +1,8 @@
 <?php
-include '../dbConnection.php';
+include '../../dbConnection.php';
 session_start();
 if (!isset($_SESSION["useruid"])) {
-	header("location: ../login.php");
+	header("location: ../../login.php");
 	exit();
 }
 ?>
@@ -14,10 +14,11 @@ if (!isset($_SESSION["useruid"])) {
 	<meta charset="utf8_general_ci">
 	<title>Edufun - Grammatica Nedelands</title>
 	<meta property="og:site_name" content="Edufun">
-	<link rel="shortcut icon" type="image/png" href="../img/icon.png">
-	<meta property="og:image" content="../img/icon.png">
-	<link rel="stylesheet" type="text/css" href="../css/font-awesome.css">
+	<link rel="shortcut icon" type="image/png" href="../../img/icon.png">
+	<meta property="og:image" content="../../img/icon.png">
+	<link rel="stylesheet" type="text/css" href="../../css/font-awesome.css">
 	<link rel="stylesheet" href="quiz-nederlands.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </head>
 
@@ -25,14 +26,14 @@ if (!isset($_SESSION["useruid"])) {
 	<header id="header">
 		<div class="header">
 			<div class="logo">
-				<a href="#"><img src="../img/logo.png"></a>
+				<a href="#"><img src="../../img/logo.png"></a>
 			</div>
 			<div class="log">
 				<?php
 				if (isset($_SESSION["useruid"])) {
-				?>
+				?> 
 					<!-- <a href="profile" class="profile"><i class="fa fa-user" aria-hidden="true"></i> <?php echo  $_SESSION["useruid"]; ?></a> -->
-					<a href="../logout" class="logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Log Out</a>
+					<a href="../../logout" class="logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Log Out</a>
 				<?php
 				} else {
 				?>
@@ -49,13 +50,13 @@ if (!isset($_SESSION["useruid"])) {
 				<nav class="nav">
 					<ul>
 						<li class="menu-item">
-							<a href="../index"><i class="fa fa-home" aria-hidden="true"></i> Edufun </a>
+							<a href="../../index"><i class="fa fa-home" aria-hidden="true"></i> Edufun </a>
 						</li>
 						<!-- <li class="menu-item ">
 							<a href="List"><i class="fa fa-list" aria-hidden="true"></i> List </a>
 						</li> -->
 						<li class="menu-item">
-							<a href="../games.php"><i class="fa fa-gamepad" aria-hidden="true"></i> Games </a>
+							<a href="../../games.php"><i class="fa fa-gamepad" aria-hidden="true"></i> Games </a>
 						</li>
 						<li class="menu-item">
 							<a><button type="button" value="dark/light" onclick="myFunction1()"><i class="fa fa-sun-o" style="color: #8f8f8f;"></i></button></a>
@@ -101,25 +102,20 @@ if (!isset($_SESSION["useruid"])) {
 						<div class="score_text_pv">
 						</div>
 						<div class="buttons_pv">
-							<button class="restart_pv">Opnieuw Spelen</button>
 							<button class="quit_pv">Quiz afsluiten</button>
-							<form>
-								<input type="text" name="username" id="username" placeholder="speler naam">
+							<form id="fupForm" name="form1" method="post">
+								<input type="button" name="save" class="btn btn-primary" value="Save to database" id="butsave">
 							</form>
-							<div class="buttons">
-								<button class="btn" id="save-score" onclick="saveHighscore(event)" disabled name="save_score">Save</button>
-							</div> <a href="highscore"><button class="resultaat_pv">LeaderBoard</button></a>
+							<a href="leaderboard.php"><button class="leaderboard">LeaderBoard</button></a>
 						</div>
 					</div>
 				</div>
 			</div>
 	</section>
-
-
-	<script src="../script.js"></script>
+	<script src="../../script.js"></script>
 	<script src="quiz.js"></script>
-	<?php $score = "<script>document.writeIn(scoreTag)</script>"?>
-	<?php echo $score;?>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 
 </body>
 

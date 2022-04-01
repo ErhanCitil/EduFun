@@ -67,12 +67,12 @@ include 'dbConnection.php';
 			</div>
 			<div id="games-text">
 				<div id="game">
-                    <div class="games">
+				<div class="games">
                         <div class="box">
                             <div class="topinfo">
                                 <div>Grammatica</div>
                             </div>
-                            <a href="games/Quiz-Nedelands">
+                            <a href="games/	quis-nederlands/Quiz-Nedelands">
                                 <img class="image" src="img/111.png">
                                 <div class="title">
                                     <p> Quiz Nedelands </p>
@@ -85,7 +85,7 @@ include 'dbConnection.php';
                             <div class="topinfo">
                                 <div>Smart</div>
                             </div>
-                            <a href="games/index">
+                            <a href="games/rekenen/math">
                                 <img class="image" src="https://www.gynzy.com/wp-content/uploads/2020/09/Schattend-rekenen-header.jpg">
                                 <div class="title">
                                     <p> Rekenen </p>
@@ -98,7 +98,7 @@ include 'dbConnection.php';
                             <div class="topinfo">
                                 <div>Woorden</div>
                             </div>
-                            <a href="games/wordle">
+                            <a href="games/wordle/wordle">
                                 <img class="image" src="https://www.moustique.be/wp-content/uploads/2022/01/WORLDE.jpg">
                                 <div class="title">
                                     <p> Wordle </p>

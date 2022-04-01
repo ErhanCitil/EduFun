@@ -4,7 +4,7 @@ CREATE DATABASE edufun;
 
 USE edufun;
 
-CREATE TABLE users (
+CREATE TABLE `users` (
 	usersId int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     usersName VARCHAR(100) NOT NULL,
     usersEmail VARCHAR(100) NOT NULL,
@@ -12,10 +12,15 @@ CREATE TABLE users (
     usersPwd VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE `edufun`.(
-    `id` INT NOT NULL AUTO_INCREMENT,
-    `id_game` INT NOT NULL,
-    `useruid` INT NOT NULL,
-    `score` INT NOT NULL,
-    PRIMARY KEY(`id`)
-)
+CREATE TABLE `quiz-score` (
+    id int(11) NOT NULL AUTO_INCREMENT,
+    score int NOT NULL,
+    useruid int,
+    PRIMARY KEY (id),
+    CONSTRAINT FK_PersnOrder FOREIGN KEY (useruid)
+    REFERENCES users(usersId)
+);
+
+SELECT users.usersUid, quiz_score.score
+FROM users
+INNER JOIN quiz_score ON users.usersUid = quiz_score.useruid;
