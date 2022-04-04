@@ -21,4 +21,4 @@
 
 ## Made by
 
-### Ayyub, Batuhan, Erhan & Ubada
+### Ayub, Batuhan, Erhan & Ubada
