@@ -8,11 +8,11 @@
 
 ## Talen
 
-• HTML (Front End)
-• CSS (Front End)
-• JavaScript (Front End & Back End)
-• PHP
-• MySQL
+### • HTML (Front End)
+### • CSS (Front End)
+### • JavaScript (Front End & Back End)
+### • PHP (Back End)
+### • MySQL (Back End)
 
 ## Made by
 
