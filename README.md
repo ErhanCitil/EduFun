@@ -14,6 +14,11 @@
 ### • PHP (Back End)
 ### • MySQL (Back End)
 
+
+## Coypright & Licence
+
+
+
 ## Made by
 
 ### Ayyub, Batuhan, Erhan & Ubada
