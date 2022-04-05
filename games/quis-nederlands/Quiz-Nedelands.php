@@ -31,8 +31,7 @@ if (!isset($_SESSION["useruid"])) {
 			<div class="log">
 				<?php
 				if (isset($_SESSION["useruid"])) {
-				?> 
-					<!-- <a href="profile" class="profile"><i class="fa fa-user" aria-hidden="true"></i> <?php echo  $_SESSION["useruid"]; ?></a> -->
+				?>
 					<a href="../../logout" class="logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Log Out</a>
 				<?php
 				} else {
@@ -52,11 +51,11 @@ if (!isset($_SESSION["useruid"])) {
 						<li class="menu-item">
 							<a href="../../index"><i class="fa fa-home" aria-hidden="true"></i> Edufun </a>
 						</li>
-						<!-- <li class="menu-item ">
-							<a href="List"><i class="fa fa-list" aria-hidden="true"></i> List </a>
-						</li> -->
 						<li class="menu-item">
 							<a href="../../games.php"><i class="fa fa-gamepad" aria-hidden="true"></i> Games </a>
+						</li>
+						<li class="menu-item">
+							<a href="../../leaderboard"><i class="fa fa-trophy" aria-hidden="true"></i> Leaderboard </a>
 						</li>
 						<li class="menu-item">
 							<a><button type="button" value="dark/light" onclick="myFunction1()"><i class="fa fa-sun-o" style="color: #8f8f8f;"></i></button></a>
@@ -73,13 +72,16 @@ if (!isset($_SESSION["useruid"])) {
 			</div>
 			<div id="games-text">
 				<div id="game">
-					<div class="start_btn start_btn_pv"><button>Persoonsvorm en Engelse leenwoorden</button></div>
+					<div class="start_btn start_btn_pv">
+						<button>Persoonsvorm en Engelse leenwoorden</button>
+						<a href="leaderboard.php"><button class="leaderboard">LeaderBoard</button></a>
+					</div>
 					<div class="quiz_box quiz_box_pv">
 						<header>
-							<div class="title"><?php echo  $_SESSION["useruid"]; ?></div>
+							<div class="title"><?php echo $_SESSION["useruid"]; ?></div>
 							<div class="timer">
 								<div class="time_left_txt_pv">Tijd over</div>
-								<div class="timer_sec_pv">15</div>
+								<div class="timer_sec_pv">14</div>
 							</div>
 							<div class="time_line_pv"></div>
 						</header>
@@ -104,7 +106,7 @@ if (!isset($_SESSION["useruid"])) {
 						<div class="buttons_pv">
 							<button class="quit_pv">Quiz afsluiten</button>
 							<form id="fupForm" name="form1" method="post">
-								<input type="button" name="save" class="btn btn-primary" value="Save to database" id="butsave">
+								<input type="button" name="save" class="btn btn-primary" value="Bewaren" id="butsave">
 							</form>
 							<a href="leaderboard.php"><button class="leaderboard">LeaderBoard</button></a>
 						</div>

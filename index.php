@@ -46,15 +46,16 @@ include 'dbConnection.php';
 						<li class="menu-item active">
 							<a href="#"><i class="fa fa-home" aria-hidden="true"></i> Edufun </a>
 						</li>
-						<!-- <li class="menu-item ">
-							<a href="List"><i class="fa fa-list" aria-hidden="true"></i> List </a>
-						</li> -->
 						<li class="menu-item">
 							<a href="games.php"><i class="fa fa-gamepad" aria-hidden="true"></i> Games </a>
 						</li>
 						<li class="menu-item">
+							<a href="leaderboard.php"><i class="fa fa-trophy" aria-hidden="true"></i> Leaderboard </a>
+						</li>
+						<li class="menu-item">
 							<a><button type="button" value="dark/light" onclick="myFunction1()"><i class="fa fa-sun-o" style="color: #8f8f8f;"></i></button></a>
 						</li>
+
 					</ul>
 				</nav>
 			</div>
@@ -85,7 +86,7 @@ include 'dbConnection.php';
                             <div class="topinfo">
                                 <div>Smart</div>
                             </div>
-                            <a href="games/rekenen/math">
+                            <a href="games/rekenen/">
                                 <img class="image" src="https://www.gynzy.com/wp-content/uploads/2020/09/Schattend-rekenen-header.jpg">
                                 <div class="title">
                                     <p> Rekenen </p>

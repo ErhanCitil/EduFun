@@ -199,10 +199,10 @@ body.show-overlay .main {
 
   /* timer style */
   .timer {
-    color: #150e20;
+    color: #fff;
     font-size: 25px;
-    background: #dadd3f;
-    border: 1px solid #8cb337;
+    background: #0a3e79;
+    border: 1px solid #d9dad7;
     padding: 5px 8px;
     border-radius: 5px;
     display: flex;
@@ -219,7 +219,43 @@ body.show-overlay .main {
   }
   
   .timer .timer_sec {
-    
+    font-size: 20px;
+    font-weight: 500;
+    height: 30px;
+    width: 45px;
+    color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    background: #343a40;
+    border: 1px solid #343a40;
+    user-select: none;
+  }
+  /* score style */
+  .score {
+    color: #fff;
+    font-size: 25px;
+    background: #0a3e79;
+    border: 1px solid #ced1c8;
+    padding: 5px 8px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 165px;
+    margin-left: auto;
+    margin-right: 0;
+    margin-top: -55px;
+  }
+  
+  .score .score_txt {
+    font-weight: 400px;
+    font-size: 23px;
+    color: #150e20;
+    user-select: none;
+  }
+  
+  .score .score_count {
     font-size: 20px;
     font-weight: 500;
     height: 30px;

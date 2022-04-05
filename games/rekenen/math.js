@@ -1,14 +1,13 @@
 const questionElement = document.querySelector(".question")
 const mathForm = document.querySelector(".math-form")
 const mathField = document.querySelector(".math-field")
-const pointNeeded = document.querySelector(".point-needed")
+const pointNeeded = document.querySelector(".score_count")
 const mistakes = document.querySelector(".mistakes-made")
 const progressBar = document.querySelector(".progress-inner")
 const endMessage = document.querySelector(".end-message")
 const resetButton = document.querySelector(".start-over")
 const timeincrement = document.querySelector(".timer_sec");
-// console.log(username);
-var username = document.getElementById("username");
+const username = document.getElementById("username");
 const saveButton = document.getElementById("save-score");
 
 let state = {
@@ -19,7 +18,7 @@ let state = {
 
 function updateQuestion() {
     state.currentQuestion = generateQuestion()
-    if ((state.currentQuestion.firstNum % state.currentQuestion.secondNum) == 0) {
+    if ((state.currentQuestion.firstNum % state.currentQuestion.secondNum) == 0 && (state.currentQuestion.firstNum / state.currentQuestion.secondNum) !== 1) {
         state.currentQuestion.operator = "/";
         questionElement.innerHTML = `${state.currentQuestion.firstNum} / ${state.currentQuestion.secondNum}`
     }
@@ -39,8 +38,8 @@ function getRandomInt(min, max) {
 
 function generateQuestion() {
     return {
-        firstNum: getRandomDivBy5(2, 30),
-        secondNum: getRandomDivBy5(2, 20),
+        firstNum: getRandomDivBy5(5, 30),
+        secondNum: getRandomDivBy5(2, 15),
         operator: ['+', '-', 'x'][getRandomInt(0, 2)]
     }
 }
@@ -81,7 +80,7 @@ function submitHandler(e) {
         renderProgress();
     } else {
         state.wrongAnswers++
-        state.sec--
+        state.sec -= 2;
         timeincrement.textContent = state.sec;
         clearInterval(state.sec);
         myTimer();
@@ -130,9 +129,6 @@ function myTimer() {
     state.sec = 20;
     pointNeeded.textContent = 10;
     mistakes.textContent = 6;
-    //clearInterval(state.sec);
-    //setInterval(myTimer, 1000);
-    //myTimer();
     renderProgress()
 }
 
@@ -140,35 +136,21 @@ function renderProgress() {
     progressBar.style.transform = `scaleX(${state.score / 1000})`
 }
 
-// saving high scores
 
-const MAX_HIGH_SCORES = 20;
-const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
-
-//console.log(highScore);
-
-
-username.addEventListener('keyup', () => {
-    saveButton.disabled = !username.value;
-})
-saveHighscore = e => {
-    e.preventDefault();
-
-    const score = {
-        score: state.score,
-        name: username.value
-    };
-
-    highScores.push(score);
-    highScores.sort((a, b) => b.score - a.score);
-    highScores.splice(20);
-    localStorage.setItem("highScores", JSON.stringify(highScores));
-    window.location.href = "index.php";
-    //console.log(highScores);
-}
-$abc = "<script>document.write(score)</script>";
 function navigateScore() {
     window.location.href = "highscore.php";
 }
+function navigateHome() {
+    window.location.href = "index.php";
+}
 
-localStorage.clear();
+// saving high scores
+// Post to php with AJAX
+
+function saveScore() {
+    let score = state.score;
+    $.post('score.php', {postscore:score},
+    function(data) {
+        $('#name').html(data);
+    });
+}

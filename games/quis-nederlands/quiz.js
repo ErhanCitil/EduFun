@@ -59,7 +59,6 @@ let questions = [
     answer: "Downloaden",
     options: ["Dawnloaden", "Downloaden", "Dowenloaden", "Downlloaden"],
   },
-
 ];
 //selecting all required elements
 const start_btn_pv = document.querySelector(".start_btn_pv button");
@@ -82,7 +81,6 @@ start_btn_pv.onclick = () => {
   startTimer(15); //calling startTimer function
   startTimerLine(0); //calling startTimerLine function
 };
-
 
 let timeValue = 14;
 let que_count = 0;
@@ -174,7 +172,7 @@ function optionSelected(answer) {
 
   if (userAns == correcAns) {
     //if user selected option is equal to array's correct answer
-    userScore += 1; //upgrading score value with 1
+    userScore += 50; //upgrading score value with 1
     answer.classList.add("correct"); //adding green color to correct selected option
     answer.insertAdjacentHTML("beforeend", tickIconTag); //adding tick icon to correct selected option
     console.log("Correct Answer");
@@ -211,9 +209,7 @@ function showResult() {
       "<span>gefeliciteerd!, jij hebt <input id='score' name='score' value='" +
       userScore +
       "'' readonly>" +
-      "goed uit" +
-      questions.length +
-      "</p></span>";
+      "goed</span>";
     scoreText.innerHTML = scoreTag; //adding new span tag inside score_Text
   } else if (userScore > 5) {
     // if user scored more than 5
@@ -221,9 +217,7 @@ function showResult() {
       "<span>leuk, jij hebt <input id='score' name='score' value='" +
       userScore +
       "'' readonly>" +
-      "goed uit <p>" +
-      questions.length +
-      "</p></span>";
+      "goed</span>";
     scoreText.innerHTML = scoreTag;
   } else {
     // if user scored less than 5
@@ -231,9 +225,7 @@ function showResult() {
       "<span>sorry, jij hebt allen <input id='score' name='score' value='" +
       userScore +
       "'' readonly>" +
-      "goed uit <p>" +
-      questions.length +
-      "</p></span>";
+      "goed</span>";
     scoreText.innerHTML = scoreTag;
   }
 }
@@ -294,33 +286,32 @@ function queCounter(index) {
 }
 
 /*------------------------------------------*/
-$(document).ready(function() {
-  $('#butsave').on('click', function() {
+$(document).ready(function () {
+  $("#butsave").on("click", function () {
     $("#butsave").attr("disabled", "disabled");
-    var score = $('#score').val();
+    var score = $("#score").val();
     if (score != "") {
       $.ajax({
         url: "save.php",
         type: "POST",
         data: {
-          score: score
+          score: score,
         },
         cache: false,
-        success: function(dataResult) {
+        success: function (dataResult) {
           var dataResult = JSON.parse(dataResult);
           if (dataResult.statusCode == 200) {
             $("#butsave").removeAttr("disabled");
-            $('#fupForm').find('input:text').val('');
+            $("#fupForm").find("input:text").val("");
             $("#success").show();
-            $('#success').alert("Success!");
+            $("#success").alert("Success!");
           } else if (dataResult.statusCode == 201) {
             alert("Error occured !");
           }
-
-        }
+        },
       });
     } else {
-      alert('er is iets mis gegaan');
+      alert("er is iets mis gegaan");
     }
   });
 });
