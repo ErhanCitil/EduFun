@@ -24,3 +24,15 @@ CREATE TABLE `quiz-score` (
 SELECT users.usersUid, quiz_score.score
 FROM users
 INNER JOIN quiz_score ON users.usersUid = quiz_score.useruid;
+
+
+CREATE TABLE `wordle` (
+    id int(11) NOT NULL AUTO_INCREMENT,
+    timesamp date NOT NULL,
+    useruid int,
+    PRIMARY KEY (id),
+    CONSTRAINT FK_PersnOder FOREIGN KEY (useruid)
+    REFERENCES users(usersId)
+);
+
+ALTER TABLE `wordle` ADD `complete` VARCHAR NOT NULL ;

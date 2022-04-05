@@ -1,6 +1,6 @@
 @font-face {
     font-family: "edufun";
-    src: url("../fonts/HelveticaNeueW23-Reg.woff");
+    src: url("../../fonts/HelveticaNeueW23-Reg.woff");
   }
   
   html,
@@ -146,7 +146,7 @@
   #menu {
     width: 100%;
     height: 58px;
-    background: url(../img/background.png) repeat #0e0e0e;
+    background: url(../../img/background.png) repeat #0e0e0e;
   }
   
   #menu .menu {
@@ -253,7 +253,7 @@
     border-radius: 20px;
     max-width: 550px;
     margin-top: 60px;
-    background: url(../img/background.png) repeat #0e0e0e;
+    background: url(../../img/background.png) repeat #0e0e0e;
   }
   .sign-in label {
     padding: 0px 10px 0px 0px;

@@ -1,8 +1,8 @@
 <?php
-include '../dbConnection.php';
+include '../../dbConnection.php';
 session_start();
 if (!isset($_SESSION["useruid"])) {
-    header("location: ../login.php");
+    header("location: ../../login.php");
     exit();
 }
 ?>
@@ -14,9 +14,9 @@ if (!isset($_SESSION["useruid"])) {
     <meta charset="utf8_general_ci">
     <title>Edufun - Wordle</title>
     <meta property="og:site_name" content="Edufun">
-    <link rel="shortcut icon" type="image/png" href="../img/icon.png">
-    <meta property="og:image" content="../img/icon.png">
-    <link rel="stylesheet" type="text/css" href="../css/font-awesome.css">
+    <link rel="shortcut icon" type="image/png" href="../../img/icon.png">
+    <meta property="og:image" content="../../img/icon.png">
+    <link rel="stylesheet" type="text/css" href="../../css/font-awesome.css">
     <link rel="stylesheet" href="wordle.css">
 </head>
 
@@ -24,14 +24,14 @@ if (!isset($_SESSION["useruid"])) {
     <header id="header">
         <div class="header">
             <div class="logo">
-                <a href="#"><img src="../img/logo.png"></a>
+                <a href="#"><img src="../../img/logo.png"></a>
             </div>
             <div class="log">
                 <?php
                 if (isset($_SESSION["useruid"])) {
                 ?>
                     <!-- <a href="profile" class="profile"><i class="fa fa-user" aria-hidden="true"></i> <?php echo  $_SESSION["useruid"]; ?></a> -->
-                    <a href="../logout" class="logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Log Out</a>
+                    <a href="../../logout" class="logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Log Out</a>
                 <?php
                 } else {
                 ?>
@@ -48,14 +48,14 @@ if (!isset($_SESSION["useruid"])) {
                 <nav class="nav">
                     <ul>
                         <li class="menu-item">
-                            <a href="../index"><i class="fa fa-home" aria-hidden="true"></i> Edufun </a>
+                            <a href="../../index"><i class="fa fa-home" aria-hidden="true"></i> Edufun </a>
                         </li>
-                        <!-- <li class="menu-item ">
-							<a href="List"><i class="fa fa-list" aria-hidden="true"></i> List </a>
-						</li> -->
                         <li class="menu-item">
-                            <a href="../games.php"><i class="fa fa-gamepad" aria-hidden="true"></i> Games </a>
+                            <a href="../../games.php"><i class="fa fa-gamepad" aria-hidden="true"></i> Games </a>
                         </li>
+                        <li class="menu-item">
+							<a href="../../leaderboard.php"><i class="fa fa-trophy" aria-hidden="true"></i> Leaderboard </a>
+						</li>
                         <li class="menu-item">
                             <a><button type="button" value="dark/light" onclick="myFunction1()"><i class="fa fa-sun-o" style="color: #8f8f8f;"></i></button></a>
                         </li>
@@ -71,16 +71,16 @@ if (!isset($_SESSION["useruid"])) {
             </div>
             <div id="games-text">
                 <div id="game">
-                    <div id="board">
-
-                    </div>
+                    <div id="board"></div>
                 </div>
             </div>
     </section>
-    <script src="../script.js"></script>
-    <script src="wordle.js"></script>
 
-    <h1 id="answer"></h1>
+    <script src="wordle.js" type="text/javascript"></script>
+    <script src="../../script.js"></script>
+
+
+    <h2 id="answer" name="answer"></h2>
 </body>
 
 </html>

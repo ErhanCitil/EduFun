@@ -49,11 +49,11 @@ if (!isset($_SESSION["useruid"])) {
 						<li class="menu-item">
 							<a href="../../index"><i class="fa fa-home" aria-hidden="true"></i> Edufun </a>
 						</li>
-						<!-- <li class="menu-item ">
-							<a href="List"><i class="fa fa-list" aria-hidden="true"></i> List </a>
-						</li> -->
 						<li class="menu-item">
 							<a href="../../games.php"><i class="fa fa-gamepad" aria-hidden="true"></i> Games </a>
+						</li>
+						<li class="menu-item">
+							<a href="../../leaderboard"><i class="fa fa-trophy" aria-hidden="true"></i> Leaderboard </a>
 						</li>
 						<li class="menu-item">
 							<a><button type="button" value="dark/light" onclick="myFunction1()"><i class="fa fa-sun-o" style="color: #8f8f8f;"></i></button></a>
@@ -75,7 +75,7 @@ if (!isset($_SESSION["useruid"])) {
 				</h1>
 				<ol>
 					<?php
-					$sql = "SELECT users.usersUid, quiz_score.score FROM users RIGHT JOIN quiz_score ON users.usersUid = quiz_score.useruid ORDER BY score DESC LIMIT 5";
+					$sql = "SELECT * FROM quiz_score ORDER BY score DESC LIMIT 5";
 					$result = $conn->query($sql);
 					if ($result->num_rows > 0) {
 						while ($row = $result->fetch_assoc()) {
@@ -83,7 +83,7 @@ if (!isset($_SESSION["useruid"])) {
 					?>
 							<li>
 								<mark><?php echo  $row["usersUid"]; ?></mark>
-								<small><?php echo  $row["score"]; ?></small>
+								<small><?php echo $row["score"]; ?></small>
 							</li>
 					<?php
 						}
