@@ -31,12 +31,12 @@
 ## Bijdragende
 
 ### Ayub, Batuhan, Erhan & Ubada
-Ayyub: 
-Batuhan: b.yumak70@gmail.com
-Erhan: erhancitil94@gmail.com
-Ubada: 
+### Ayyub: 
+### Batuhan: b.yumak70@gmail.com
+### Erhan: erhancitil94@gmail.com
+### Ubada: 
 
 ## Github accounts
-https://github.com/BatuhanYumak
-https://github.com/ErhanCitil 
+### https://github.com/BatuhanYumak
+### https://github.com/ErhanCitil 
 
