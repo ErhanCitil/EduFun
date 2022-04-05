@@ -23,11 +23,6 @@
 #### • PHP (Back End)
 #### • MySQL (Back End)
 
-
-## Coypright & Licence
-
-
-
 ## Bijdragende
 
 #### Ayub, Batuhan, Erhan & Ubada
@@ -41,5 +36,5 @@
 #### https://github.com/ErhanCitil 
 #### https://github.com/ubadamhimid
 
-
+## Coypright & Licence
 
