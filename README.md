@@ -1,10 +1,10 @@
 # EduFun Read.me 
 
-### EduFun is een educatieve spelletjes website voor jong en oud. Het is gebouwd in het jaar 2022. Er zijn spelletjes zoals Nederlands, rekenen en Wordle.
+#### EduFun is een educatieve spelletjes website voor jong en oud. Het is gebouwd in het jaar 2022. Er zijn spelletjes zoals Nederlands, rekenen en Wordle.
 
 ## Demo
 
-### Je kan de demo versie live bekijken via onze website: https://projects.bit-academy.nl/~edufun/
+#### Je kan de demo versie live bekijken via onze website: https://projects.bit-academy.nl/~edufun/
 
 ## Talen die gebruikt zijn en de reden waarom ze gebruikt zijn
 #### Wij hebben ons project gebouwd in HTML5, CSS, JavaScript, PHP en MySQL.
@@ -13,15 +13,15 @@
 
 ## Installation
 
-### Voer de SQL queries uit in je MySQL table en zet de bestanden in je htcdocs. Daarna kan je hem via je localhost gebruiken.
+#### Voer de SQL queries uit in je MySQL table en zet de bestanden in je htcdocs. Daarna kan je hem via je localhost gebruiken.
 
 ## Talen
 
-### • HTML (Front End)
-### • CSS (Front End)
-### • JavaScript (Front End & Back End)
-### • PHP (Back End)
-### • MySQL (Back End)
+#### • HTML (Front End)
+#### • CSS (Front End)
+#### • JavaScript (Front End & Back End)
+#### • PHP (Back End)
+#### • MySQL (Back End)
 
 
 ## Coypright & Licence
@@ -30,16 +30,16 @@
 
 ## Bijdragende
 
-### Ayub, Batuhan, Erhan & Ubada
-### Ayyub: ayyuubf321@gmail.com
-### Batuhan: b.yumak70@gmail.com
-### Erhan: erhancitil94@gmail.com
-### Ubada: ubadara.101@gmail.com
+#### Ayub, Batuhan, Erhan & Ubada
+#### Ayyub: ayyuubf321@gmail.com
+#### Batuhan: b.yumak70@gmail.com
+#### Erhan: erhancitil94@gmail.com
+#### Ubada: ubadara.101@gmail.com
 
 ## Github accounts
-### https://github.com/BatuhanYumak
-### https://github.com/ErhanCitil 
-### https://github.com/ubadamhimid
+#### https://github.com/BatuhanYumak
+#### https://github.com/ErhanCitil 
+#### https://github.com/ubadamhimid
 
 
 
