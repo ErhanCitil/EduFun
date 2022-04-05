@@ -18,9 +18,7 @@ if (!isset($_SESSION["useruid"])) {
 	<meta property="og:image" content="../../img/icon.png">
 	<link rel="stylesheet" type="text/css" href="../../css/font-awesome.css">
 	<link rel="stylesheet" type="text/css" href="math.css">
-	<link rel="stylesheet" href="../../css/style.css">
-	<script src="https://kit.fontawesome.com/c8f092cc07.js" crossorigin="anonymous"></script>
-	
+	<link rel="stylesheet" href="../../css/style.css">	
 </head>
 
 <body>

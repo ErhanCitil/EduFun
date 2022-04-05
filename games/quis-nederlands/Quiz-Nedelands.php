@@ -32,7 +32,6 @@ if (!isset($_SESSION["useruid"])) {
 				<?php
 				if (isset($_SESSION["useruid"])) {
 				?>
-					<!-- <a href="profile" class="profile"><i class="fa fa-user" aria-hidden="true"></i> <?php echo  $_SESSION["useruid"]; ?></a> -->
 					<a href="../../logout" class="logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Log Out</a>
 				<?php
 				} else {
@@ -82,7 +81,7 @@ if (!isset($_SESSION["useruid"])) {
 							<div class="title"><?php echo $_SESSION["useruid"]; ?></div>
 							<div class="timer">
 								<div class="time_left_txt_pv">Tijd over</div>
-								<div class="timer_sec_pv">15</div>
+								<div class="timer_sec_pv">14</div>
 							</div>
 							<div class="time_line_pv"></div>
 						</header>

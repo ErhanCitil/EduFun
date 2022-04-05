@@ -18,7 +18,8 @@ if (!isset($_SESSION["useruid"])) {
     <link rel="stylesheet" href="score.css">
     <link rel="stylesheet" type="text/css" href="../../css/font-awesome.css">
     <link rel="stylesheet" href="../../css/style.css">
-    <title>Home Page</title>
+	
+    <title>Edufun - Rekenen</title>
 </head>
 <body>
 <header id="header">
@@ -30,7 +31,6 @@ if (!isset($_SESSION["useruid"])) {
 				<?php
 				if (isset($_SESSION["useruid"])) {
 				?>
-					<!-- <a href="profile" class="profile"><i class="fa fa-user" aria-hidden="true"></i> <?php echo  $_SESSION["useruid"]; ?></a> -->
 					<a href="../logout" class="logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Log Out</a>
 				<?php
 				} else {

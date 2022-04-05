@@ -8,20 +8,22 @@ if (!isset($_SESSION["useruid"])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta property="og:site_name" content="Edufun">
 	<link rel="shortcut icon" type="image/png" href="../../img/icon.png">
 	<meta property="og:image" content="../../img/icon.png">
-    <link rel="stylesheet" href="score.css">
+	<link rel="stylesheet" href="score.css">
 	<link rel="stylesheet" type="text/css" href="../../css/font-awesome.css">
-    <link rel="stylesheet" href="../../css/style.css">
-    <title>LeaderBoard</title>
+	<link rel="stylesheet" href="../../css/style.css">
+	<title>LeaderBoard</title>
 </head>
+
 <body>
-<header id="header">
+	<header id="header">
 		<div class="header">
 			<div class="logo">
 				<a href="#"><img src="../../img/logo.png"></a>
@@ -30,7 +32,6 @@ if (!isset($_SESSION["useruid"])) {
 				<?php
 				if (isset($_SESSION["useruid"])) {
 				?>
-					<!-- <a href="profile" class="profile"><i class="fa fa-user" aria-hidden="true"></i> <?php echo  $_SESSION["useruid"]; ?></a> -->
 					<a href="../../logout" class="logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Log Out</a>
 				<?php
 				} else {
@@ -69,40 +70,40 @@ if (!isset($_SESSION["useruid"])) {
 			<div class="games-text">
 				<p><i class="fa fa-calculator" aria-hidden="true"></i> Rekenen leaderboard </p>
 			</div>
-    <div class="leaderboard">
-    <h1>
-        <svg class="ico-cup">
-            <use xlink:href="#cup"></use>
-        </svg>
-        LEADERBOARDS
-    </h1>
-    <ol>
-            <?php
-            $sql = "SELECT * FROM `quiz-score` ORDER BY score DESC LIMIT 5";
-            $result = mysqli_query($conn, $sql);
+			<div class="leaderboard">
+				<h1>
+					<svg class="ico-cup">
+						<use xlink:href="#cup"></use>
+					</svg>
+					LEADERBOARDS
+				</h1>
+				<ol>
+					<?php
+					$sql = "SELECT * FROM `quiz-score` ORDER BY score DESC LIMIT 20";
+					$result = mysqli_query($conn, $sql);
 
-            if($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-                    
-                ?>
-                    <li>
-                        <mark><?php echo $row['usersUid']?></mark>
-                        <small><?php echo $row['score']?></small>
-                    </li>
-            <?php
-                }
-            } else {
-                echo "0 results";
-            }
-            mysqli_close($conn);
-            ?>
-    </ol>
-</div>
+					if ($result->num_rows > 0) {
+						while ($row = $result->fetch_assoc()) {
+
+					?>
+							<li>
+								<mark><?php echo $row['usersUid'] ?></mark>
+								<small><?php echo $row['score'] ?></small>
+							</li>
+					<?php
+						}
+					} else {
+						echo "0 results";
+					}
+					mysqli_close($conn);
+					?>
+				</ol>
+			</div>
 
 
-<svg style="display: none;">
-    <symbol id="cup" x="0px" y="0px" width="25px" height="26px" viewBox="0 0 25 26" enable-background="new 0 0 25 26" xml:space="preserve">
-        <path fill="#F26856" d="M21.215,1.428c-0.744,0-1.438,0.213-2.024,0.579V0.865c0-0.478-0.394-0.865-0.88-0.865H6.69
+			<svg style="display: none;">
+				<symbol id="cup" x="0px" y="0px" width="25px" height="26px" viewBox="0 0 25 26" enable-background="new 0 0 25 26" xml:space="preserve">
+					<path fill="#F26856" d="M21.215,1.428c-0.744,0-1.438,0.213-2.024,0.579V0.865c0-0.478-0.394-0.865-0.88-0.865H6.69
 	C6.204,0,5.81,0.387,5.81,0.865v1.142C5.224,1.641,4.53,1.428,3.785,1.428C1.698,1.428,0,3.097,0,5.148
 	C0,7.2,1.698,8.869,3.785,8.869h1.453c0.315,0,0.572,0.252,0.572,0.562c0,0.311-0.257,0.563-0.572,0.563
 	c-0.486,0-0.88,0.388-0.88,0.865c0,0.478,0.395,0.865,0.88,0.865c0.421,0,0.816-0.111,1.158-0.303
@@ -119,15 +120,16 @@ if (!isset($_SESSION["useruid"])) {
 	C13.195,16.578,13.344,17.436,13.673,18.301z M12.5,14.276c-2.856,0-4.93-2.638-4.93-6.273V1.73h9.859v6.273
 	C17.43,11.638,15.357,14.276,12.5,14.276z M21.215,7.138h-1.452c-0.197,0-0.39,0.024-0.572,0.07v-2.06
 	c0-1.097,0.908-1.99,2.024-1.99c1.117,0,2.025,0.893,2.025,1.99C23.241,6.246,22.333,7.138,21.215,7.138z" />
-</symbol>
-</svg>
-</div>
-</section>
-<br>
-<div class="button">
-  <button class="start-over" onclick="navigateHome()">Home<i class="fa fa-home"></i></button>
-</div>
+				</symbol>
+			</svg>
+		</div>
+	</section>
+	<br>
+	<div class="button">
+		<button class="start-over" onclick="navigateHome()">Home<i class="fa fa-home"></i></button>
+	</div>
 	<script src="../../script.js"></script>
-    <script src="math.js"></script>
+	<script src="math.js"></script>
 </body>
+
 </html>
