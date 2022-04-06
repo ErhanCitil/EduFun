@@ -26,7 +26,6 @@ include 'dbConnection.php';
 				session_start();
 				if (isset($_SESSION["useruid"])) {
 				?>
-					<!-- <a href="profile" class="profile"><i class="fa fa-user" aria-hidden="true"></i> <?php echo  $_SESSION["useruid"]; ?></a> -->
 					<a href="logout" class="logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Log Out</a>
 				<?php
 				} else {

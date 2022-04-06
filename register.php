@@ -27,7 +27,6 @@
 
                 if (isset($_SESSION["useruid"])) {
                 ?>
-                    <!-- <a href="profile" class="profile"><i class="fa fa-user" aria-hidden="true"></i> <?php echo  $_SESSION["useruid"]; ?></a> -->
                     <a href="logout" class="logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Log Out</a>
                 <?php
                 } else {
@@ -51,8 +50,8 @@
                             <a href="games.php"><i class="fa fa-gamepad" aria-hidden="true"></i> Games </a>
                         </li>
                         <li class="menu-item">
-							<a href="Leaderboard"><i class="fa fa-trophy" aria-hidden="true"></i> Leaderboard </a>
-						</li>
+                            <a href="Leaderboard"><i class="fa fa-trophy" aria-hidden="true"></i> Leaderboard </a>
+                        </li>
                         <li class="menu-item">
                             <a><button type="button" value="dark" onclick="myFunction()"><i class="fa fa-sun-o" style="color: #8f8f8f;"></i></button></a>
                         </li>
@@ -67,7 +66,6 @@
                 <i class="fa fa-user-plus" aria-hidden="true"></i> Sign up
             </h1>
         </div>
-        <!-- displaying error-->
         <?php
         if (isset($_GET['error'])) {
             if ($_GET['error'] == "emptyinput") {
