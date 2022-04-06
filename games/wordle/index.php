@@ -5,8 +5,19 @@ if (!isset($_SESSION["useruid"])) {
     header("location: ../../login.php");
     exit();
 }
+if (isset($_POST['save'])) {
+    $userid = $_SESSION['userid'];
+    $sql = "SELECT `timesamp` FROM `wordle` WHERE `useruid` = '$userid'";
+    $insertsql = "INSERT INTO `wordle`(`timesamp`, `useruid`) VALUES ('0000-00-00 00:00:00', '$userid');";
+    $result = mysqli_query($conn, $sql);
+    if (mysqli_num_rows($result) > 0) {
+    } else {
+        if (mysqli_query($conn, $insertsql)) {
+        } else {
+        }
+    }
+}
 ?>
-
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -30,7 +41,6 @@ if (!isset($_SESSION["useruid"])) {
                 <?php
                 if (isset($_SESSION["useruid"])) {
                 ?>
-                    <!-- <a href="profile" class="profile"><i class="fa fa-user" aria-hidden="true"></i> <?php echo  $_SESSION["useruid"]; ?></a> -->
                     <a href="../../logout" class="logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Log Out</a>
                 <?php
                 } else {
@@ -71,14 +81,37 @@ if (!isset($_SESSION["useruid"])) {
             </div>
             <div id="games-text">
                 <div id="game">
-                    <form id="link" method="post" action="index.php">
-                        <input type="submit" name="save" value="Start wordle">
-                    </form>
+                    <?php
+
+                    $tijdGespeld = "SELECT `timesamp` FROM `wordle` WHERE `useruid` = '$userid'";
+                    $result = mysqli_query($conn, $tijdGespeld);
+                    $tijdNu = date("Y-m-d H:i:s");
+                    if ($row = $result->fetch_assoc()) {
+                        if (time() - strtotime($row['timesamp']) > 60 * 60 * 24) {
+                            $updatesql = "UPDATE `wordle` SET `timesamp` = NOW() WHERE `wordle`.`useruid` = $userid;";
+                            if (mysqli_query($conn, $updatesql)) {
+                            }
+                    ?>
+                            <div id="board"></div>
+                        <?php
+                        } else {
+                        ?>
+                            <h1 class="hour">Jij Heeft het game gespeld binnen 24 uur</h1>
+                    <?php
+                        }
+                    }
+                    ?>
+
                 </div>
             </div>
     </section>
 
+    <script src="wordle.js" type="text/javascript"></script>
     <script src="../../script.js"></script>
+
+
+    <h2 id="answer" name="answer"></h2>
+
 </body>
 
 </html>

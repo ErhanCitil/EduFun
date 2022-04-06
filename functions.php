@@ -77,6 +77,7 @@ function emailExists($conn, $userName, $email) {
 }
 function createUser($conn, $name, $email, $userName, $pwd) {
     $sql = "INSERT INTO users (usersName, usersEmail, usersUid, usersPwd) VALUES (?, ?, ?, ?);";
+    // $sqll = "INSERT INTO wordle (timesmap, useruid) VALUES ('0000-00-00 00:00:00', ?);";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         header("location: register.php?error=stmtfaild");
