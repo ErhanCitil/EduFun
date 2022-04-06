@@ -84,7 +84,7 @@ function submitHandler(e) {
         timeincrement.textContent = state.sec;
         clearInterval(state.sec);
         myTimer();
-        mistakes.textContent = 6 - state.wrongAnswers;
+        mistakes.textContent = 10 - state.wrongAnswers;
         questionElement.classList.add("animate-wrong")
         setTimeout(() => questionElement.classList.remove("animate-wrong"), 451)
         updateQuestion()
@@ -95,7 +95,7 @@ function submitHandler(e) {
 function checkstatus() {
     // you won
     
-    if (state.score === 1000) {
+    if (state.score === 10000) {
         endMessage.textContent = "Congrats! You reached the maximum score!.";
         document.body.classList.add("show-overlay")
         setTimeout(() => resetButton.focus(), 330)
@@ -133,7 +133,7 @@ function myTimer() {
 }
 
 function renderProgress() {
-    progressBar.style.transform = `scaleX(${state.score / 1000})`
+    progressBar.style.transform = `scaleX(${state.score / 10000})`
 }
 
 

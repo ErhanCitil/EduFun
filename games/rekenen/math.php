@@ -83,7 +83,7 @@ if (!isset($_SESSION["useruid"])) {
 				<form action="" class="math-form">
 					<input type="text" class="math-field" autocomplete="off">
 					<button class="button submit">Submit</button>
-					<p><span class="mistakes-made">6</span> fouten nog</p>
+					<p><span class="mistakes-made">10</span> fouten nog</p>
 				</form>
 				
 				<div class="progress">
