@@ -115,16 +115,16 @@ Leaderboard
     border-radius: 10px;
 }
 
-.leaderboard ol li:nth-child(1) {
-    background: #5560fa;
+.leaderboard ol li {
+    background: #3b44cb;
 }
 
-.leaderboard ol li:nth-child(1)::after {
-    background: #556efa;
+.leaderboard ol li {
+    background: #243493;
 }
 
 .leaderboard ol li:nth-child(2) {
-    background: #4f65e0;
+    background: #364abc;
 }
 
 .leaderboard ol li:nth-child(2)::after {
@@ -139,7 +139,7 @@ Leaderboard
 }
 
 .leaderboard ol li:nth-child(3) {
-    background: #4d56d7;
+    background: #3e45aa;
 }
 
 .leaderboard ol li:nth-child(3)::after {
@@ -154,7 +154,7 @@ Leaderboard
 }
 
 .leaderboard ol li:nth-child(4) {
-    background: #4b54cd;
+    background: #373ea1;
 }
 
 .leaderboard ol li:nth-child(4)::after {
@@ -171,7 +171,7 @@ Leaderboard
 }
 
 .leaderboard ol li:nth-child(5) {
-    background: #4451c2;
+    background: #37429e;
     border-radius: 0 0 10px 10px;
 }
 
@@ -222,7 +222,7 @@ Leaderboard
 .start-over {
     z-index: 2;
     position: absolute;
-    top: 650px;
+    top: 200px;
     font-size: 1.2rem;
     background-color: #2d70d4;
     border: none;

@@ -147,10 +147,12 @@ function navigateHome() {
 // saving high scores
 // Post to php with AJAX
 
-function saveScore() {
+function saveScore(saveButton) {
     let score = state.score;
     $.post('score.php', {postscore:score},
     function(data) {
         $('#name').html(data);
     });
+
+    saveButton.disabled = true;
 }

@@ -17,6 +17,7 @@ if (!isset($_SESSION["useruid"])) {
 	<link rel="shortcut icon" type="image/png" href="../../img/icon.png">
 	<meta property="og:image" content="../../img/icon.png">
 	<link rel="stylesheet" type="text/css" href="../../css/font-awesome.css">
+	<script src="https://kit.fontawesome.com/c8f092cc07.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" type="text/css" href="math.css">
 	<link rel="stylesheet" href="../../css/style.css">	
 </head>
@@ -108,7 +109,7 @@ if (!isset($_SESSION["useruid"])) {
 					<!-- display score -->
 					<p id="name"></p>
 					<div class="buttons">
-						<button class="btn" id="save-score" onclick="saveScore()">Save</button>
+						<button class="btn" id="save-score" onclick="saveScore(this)">Save</button>
 						<button class="btn" id="highscore-btn" onclick="navigateScore()">High Score<i class="fas fa-crown"></i></button>
 						<button class="start-over">Start Over</button>
 					</div>
