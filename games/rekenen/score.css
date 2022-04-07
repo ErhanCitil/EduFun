@@ -189,6 +189,50 @@ Leaderboard
     border-bottom: 8px solid #364d99;
 }
 
+.leaderboard ol li:nth-child(6) {
+    background: #4d56d7;
+}
+
+.leaderboard ol li:nth-child(6)::after {
+    background: #4d72d7;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.11);
+}
+
+.leaderboard ol li:nth-child(6) mark::before,
+.leaderboard ol li:nth-child(6) mark::after {
+    border-top: 2px solid #3f54b0;
+    bottom: -3px;
+}
+.leaderboard ol li:nth-child(7) {
+    background: #4d56d7;
+}
+
+.leaderboard ol li:nth-child(7)::after {
+    background: #4d72d7;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.11);
+}
+
+.leaderboard ol li:nth-child(7) mark::before,
+.leaderboard ol li:nth-child(7) mark::after {
+    border-top: 2px solid #3f54b0;
+    bottom: -3px;
+}
+
+.leaderboard ol li {
+    background: #4d56d7;
+}
+
+.leaderboard ol li::after {
+    background: #4d72d7;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.11);
+}
+
+.leaderboard ol li mark::before,
+.leaderboard ol li mark::after {
+    border-top: 2px solid #3f54b0;
+    bottom: -3px;
+}
+
 .leaderboard ol li:hover {
     z-index: 2;
     overflow: visible;

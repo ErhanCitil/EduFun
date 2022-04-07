@@ -124,10 +124,6 @@ if (!isset($_SESSION["useruid"])) {
 			</svg>
 		</div>
 	</section>
-	<br>
-	<div class="button">
-		<button class="start-over" onclick="navigateHome()">Home<i class="fa fa-home"></i></button>
-	</div>
 	<script src="../../script.js"></script>
 	<script src="math.js"></script>
 </body>
