@@ -1,7 +1,7 @@
 <?php
 include '../../dbConnection.php';
 session_start();
-if (isset($_POST['postscore']) <= 100) {
+if (isset($_POST['postscore'])) {
     $score = $_POST['postscore'];
     //echo $score;
     $userid = $_SESSION['userid'];
@@ -20,5 +20,5 @@ if (isset($_POST['postscore']) <= 100) {
     }
     mysqli_close($conn);
 } else {
-    echo "sorry! try to score > 250";
+    echo "sorry! something went wrong";
 }
